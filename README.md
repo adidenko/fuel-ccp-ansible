@@ -3,13 +3,12 @@ fuel-ccp-ansible
 
 Ansible playbooks to deploy Fuel-CCP.
 
-Requirements
-------------
-
-* Kubernetes deployed with Kargo, this playbooks reuiqre kargo's inventoty
 
 How to
 ------
+
+* Make sure you have inventory.cfg, in the examples below we're using the same
+inventory that was used for Kubernetes deployment with Kargo.
 
 * Default deployment:
 
