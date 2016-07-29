@@ -1,16 +1,20 @@
+# Override default OVS neutron agent
 ccp_neutron_plugin_agent: "calico"
 ccp_neutron_logging_debug: "true"
-ccp_num_images: 38
 
+# node.name is k8s node, see `kubectl get nodes` output to get exact names.
+# node.role is role "alias" to simplify config, see ccp-conf vars for details.
 ccp_nodes:
   - name: "node1"
     role: controller
   - name: "node[2-3]"
     role: compute
 
+# List of hashed with gerrit reviews to download and cherry-pick
 ccp_gerrit_reviews:
   - repo: "fuel-ccp-neutron"
     refspec: "refs/changes/89/345489/9"
   - repo: "fuel-ccp-nova"
     refspec: "refs/changes/82/346882/3"
-
+# Our reviews add some images, so let's check them as well
+ccp_num_images: 38
