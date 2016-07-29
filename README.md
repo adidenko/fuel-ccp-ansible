@@ -14,8 +14,8 @@ inventory that was used for Kubernetes deployment with Kargo.
 
 ```bash
 export INVENTORY=/root/kargo/inventory/inventory.cfg
-ansible-playbook -i /root/mcp/nodes_to_inv.py build.yaml
-ansible-playbook -i /root/mcp/nodes_to_inv.py deploy.yaml
+ansible-playbook -i $INVENTORY build.yaml
+ansible-playbook -i $INVENTORY deploy.yaml
 ```
 
 * Deploying networking-calico OpenStack neutron plugin instead of OVS:
@@ -23,6 +23,6 @@ ansible-playbook -i /root/mcp/nodes_to_inv.py deploy.yaml
 ```bash
 export INVENTORY=/root/kargo/inventory/inventory.cfg
 cat examples/calico.yaml
-ansible-playbook -i /root/mcp/nodes_to_inv.py build.yaml -e @examples/calico.yaml
-ansible-playbook -i /root/mcp/nodes_to_inv.py deploy.yaml -e @examples/calico.yaml
+ansible-playbook -i $INVENTORY build.yaml -e @examples/calico.yaml
+ansible-playbook -i $INVENTORY deploy.yaml -e @examples/calico.yaml
 ```
