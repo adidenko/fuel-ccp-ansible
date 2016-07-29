@@ -26,3 +26,9 @@ cat examples/calico.yaml
 ansible-playbook -i $INVENTORY build.yaml -e @examples/calico.yaml
 ansible-playbook -i $INVENTORY deploy.yaml -e @examples/calico.yaml
 ```
+
+Info
+----
+
+Check `examples/calico.yaml` example file for some basic options.
+
