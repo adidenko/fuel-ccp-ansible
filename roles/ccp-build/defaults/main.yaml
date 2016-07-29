@@ -1,4 +1,4 @@
-ccp_conf: /root/ccp.conf
+ccp_conf: /root/ccp/ccp.conf
 ccp_fetch: true
 ccp_build: true
 ccp_ms_root: /root/microservices-repos
