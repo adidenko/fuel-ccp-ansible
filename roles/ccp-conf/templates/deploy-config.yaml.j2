@@ -1,18 +1,21 @@
 configs:
-  public_interface: "eth1"
-  private_interface: "eth2"
-  neutron_external_interface: "eth3"
-  neutron_logging_debug: "true"
-  neutron_plugin_agent: "calico"
+  public_interface: "{{ ccp_public_interface }}"
+  private_interface: "{{ ccp_private_interface }}"
+  neutron_external_interface: "{{ ccp_neutron_external_interface }}"
+  neutron_logging_debug: "{{ ccp_neutron_logging_debug }}"
+  neutron_plugin_agent: "{{ ccp_neutron_plugin }}"
 
 nodes:
   node1:
     roles:
-      - controller
+{% for item in controller_node %}
+      - {{ item }}
+{% endfor %}
   node[2-3]:
     roles:
-      - compute
-      - calico
+{% for item in compute_node %}
+      - {{ item }}
+{% endfor %}
 
 roles:
   controller:
@@ -23,7 +26,6 @@ roles:
     - keystone
     - mariadb
     - memcached
-    - neutron-metadata-agent
     - neutron-server
     - nova-api
     - nova-conductor
@@ -31,9 +33,23 @@ roles:
     - nova-novncproxy
     - nova-scheduler
     - rabbitmq
+  neutron-agents:
+{% for item in neutron_agents %}
+      - {{ item }}
+{% endfor %}
   compute:
     - nova-compute
     - nova-libvirt
   calico:
     - calico-dhcp-agent
     - calico-felix
+  openvswitch:
+    - neutron-openvswitch-agent
+    - openvswitch-db
+    - openvswitch-vswitchd
+  lma-controller:
+    - elasticsearch
+    - influxdb
+    - kibana
+  lma:
+    - heka

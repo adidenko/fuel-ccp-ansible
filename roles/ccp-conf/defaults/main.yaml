@@ -1,6 +1,40 @@
+ccp_neutron_plugin_agent: "openvswitch"
 ccp_misc_dir: /root/ccp
 ccp_conf: /root/ccp/ccp.conf
 ccp_deploy_conf: /root/ccp/deploy-config.yaml
 ccp_builder_push: "True"
 ccp_registry_address: "127.0.0.1:31500"
 ccp_namespace: "ccp"
+ccp_public_interface: "eth1"
+ccp_private_interface: "eth2"
+ccp_neutron_external_interface: "eth3"
+ccp_neutron_logging_debug: "false"
+
+controller_node:
+  calico:
+    - controller
+    - lma
+    - lma-controller
+    - neutron-agents
+  openvswitch:
+    - controller
+    - lma
+    - lma-controller
+    - openvswitch
+    - neutron-agents
+compute_node:
+  calico:
+    - compute
+    - lma
+    - calico
+  openvswitch:
+    - compute
+    - lma
+    - openvswitch
+neutron_agents:
+  calico:
+    - neutron-metadata-agent
+  openvswitch:
+    - neutron-metadata-agent
+    - neutron-dhcp-agent
+    - neutron-l3-agent

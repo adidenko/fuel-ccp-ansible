@@ -3,8 +3,3 @@ ccp_fetch: true
 ccp_build: true
 ccp_ms_root: /root/microservices-repos
 ccp_gerrit_base: "https://git.openstack.org/openstack"
-ccp_gerrit_reviews:
-  - repo: "fuel-ccp-neutron"
-    refspec: "refs/changes/89/345489/9"
-  - repo: "fuel-ccp-nova"
-    refspec: "refs/changes/82/346882/3"
