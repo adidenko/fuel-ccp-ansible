@@ -6,15 +6,12 @@ configs:
   neutron_plugin_agent: "{{ ccp_neutron_plugin_agent }}"
 
 nodes:
-  node1:
+{% for node in ccp_nodes %}
+  {{ node.name }}:
     roles:
-{% for item in controller_node[ccp_neutron_plugin_agent] %}
+{% for item in ccp_roles[node.role][ccp_neutron_plugin_agent] %}
       - {{ item }}
 {% endfor %}
-  node[2-3]:
-    roles:
-{% for item in compute_node[ccp_neutron_plugin_agent] %}
-      - {{ item }}
 {% endfor %}
 
 roles:
