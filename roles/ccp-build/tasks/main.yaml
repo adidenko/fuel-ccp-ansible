@@ -5,6 +5,8 @@
 
 - name: Patch projects
   shell: git fetch "{{ ccp_gerrit_base }}/{{ item.repo }}" {{ item.refspec }} && git cherry-pick FETCH_HEAD
+  args:
+    chdir: "{{ ccp_ms_root }}/{{ item.repo }}"
   run_once: true
   with_items: "{{ ccp_gerrit_reviews }}"
   when: ccp_gerrit_reviews is defined
