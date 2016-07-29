@@ -1,8 +1,8 @@
 - name: Download fuel-ccp
   git:
-    repo: {{ ccp_repo }}
+    repo: "{{ ccp_repo }}"
     dest: /usr/local/src/fuel-ccp
-    version: {{ ccp_commit }}
+    version: "{{ ccp_commit }}"
 
 - name: Install CCP cli tool
   shell: pip install -U fuel-ccp/
