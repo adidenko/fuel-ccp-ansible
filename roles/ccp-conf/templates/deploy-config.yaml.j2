@@ -35,7 +35,7 @@ roles:
     - rabbitmq
   neutron-agents:
 {% for item in neutron_agents[ccp_neutron_plugin_agent] %}
-      - {{ item }}
+    - {{ item }}
 {% endfor %}
   compute:
     - nova-compute
