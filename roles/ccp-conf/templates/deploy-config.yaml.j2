@@ -8,12 +8,12 @@ configs:
 nodes:
   node1:
     roles:
-{% for item in controller_node %}
+{% for item in controller_node[ccp_neutron_plugin_agent] %}
       - {{ item }}
 {% endfor %}
   node[2-3]:
     roles:
-{% for item in compute_node %}
+{% for item in compute_node[ccp_neutron_plugin_agent] %}
       - {{ item }}
 {% endfor %}
 
