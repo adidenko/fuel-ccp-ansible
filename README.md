@@ -1,0 +1,1 @@
+# fuel-ccp-ansible
