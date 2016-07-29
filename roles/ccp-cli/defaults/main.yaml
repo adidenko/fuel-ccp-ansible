@@ -1,2 +1,3 @@
 ccp_repo: https://git.openstack.org/openstack/fuel-ccp
-ccp_commit: 7714d06cf94099f39ebabc44b4f0de0ee6eda099
+ccp_commit: master
+ccp_cli_upgrade: false

@@ -9,4 +9,10 @@
   args:
     chdir: /usr/local/src
     creates: /usr/local/bin/ccp
+  when: not ccp_cli_upgrade|default(false)
 
+- name: Upgrade CCP cli tool
+  shell: pip install -U fuel-ccp/
+  args:
+    chdir: /usr/local/src
+  when: ccp_cli_upgrade|default(false)
