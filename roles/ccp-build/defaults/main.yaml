@@ -3,3 +3,4 @@ ccp_fetch: true
 ccp_build: true
 ccp_ms_root: /root/microservices-repos
 ccp_gerrit_base: "https://git.openstack.org/openstack"
+ccp_gerrit_reviews: []
