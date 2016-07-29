@@ -40,13 +40,16 @@ roles:
   compute:
     - nova-compute
     - nova-libvirt
+{% if ccp_neutron_plugin_agent == 'calico' %}
   calico:
     - calico-dhcp-agent
     - calico-felix
+{% else %}
   openvswitch:
     - neutron-openvswitch-agent
     - openvswitch-db
     - openvswitch-vswitchd
+{% endif %}
   lma-controller:
     - elasticsearch
     - influxdb
