@@ -1,0 +1,19 @@
+- name: Create dir
+  file: path={{ ccp_misc_dir }} state=directory mode=0755
+
+- name: Create ccp.conf
+  template:
+    src: ccp.conf.j2
+    dest: {{ ccp_conf }}
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Create deploy-config.yaml
+  template:
+    src: deploy-config.yaml.j2
+    dest: {{ ccp_deploy_conf }}
+    owner: root
+    group: root
+    mode: 0600
+

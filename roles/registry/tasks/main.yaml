@@ -1,0 +1,42 @@
+- name: Create dir
+  file: path={{ ccp_misc_dir }} state=directory mode=0755
+
+- name: Create registry_pod.yaml
+  template:
+    src: registry_pod.yaml.j2
+    dest: "{{ ccp_misc_dir }}/registry_pod.yaml"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create registry_svc.yaml.j2
+  template:
+    src: registry_svc.yaml.j2
+    dest: "{{ ccp_misc_dir }}/registry_svc.yaml"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Get pods
+  shell: kubectl get pods
+  register: get_pod
+  run_once: true
+
+- name: Get services
+  shell: kubectl get svc
+  register: get_svc
+  run_once: true
+
+- name: Create registry pod
+  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_pod.yaml"
+  args:
+    chdir: /root/ccp
+  run_once: true
+  when: get_pod.stdout.find('registry') == -1
+
+- name: Create registry svc
+  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_svc.yaml"
+  args:
+    chdir: /root/ccp
+  run_once: true
+  when: get_svc.stdout.find('registry') == -1

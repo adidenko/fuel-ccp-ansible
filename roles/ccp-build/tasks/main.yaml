@@ -1,0 +1,15 @@
+- name: Fetch CCP images
+  shell: ccp --config-file={{ ccp_conf }} fetch
+  run_once: true
+  when: ccp_fetch|default(true)
+
+- name: Patch projects
+  git: repo="{{ ccp_gerrit_base }}/{{ item.repo }}" dest="{{ ccp_ms_root }}/{{ item.repo }}" refspec={{ item.refspec }}
+  run_once: true
+  with_items: {{ ccp_gerrit_reviews }}
+  when: ccp_gerrit_reviews is defined
+
+- name: Build CCP images
+  shell: ccp --config-file={{ ccp_conf }} build
+  run_once: true
+  when: ccp_build|default(true)

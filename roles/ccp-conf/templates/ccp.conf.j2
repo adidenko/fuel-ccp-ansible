@@ -1,0 +1,16 @@
+[DEFAULT]
+deploy_config = {{ ccp_deploy_conf }}
+
+[builder]
+push = {{ ccp_builder_push }}
+
+[registry]
+address = "{{ ccp_registry_address }}"
+
+[kubernetes]
+namespace = "{{ ccp_namespace }}"
+
+[repositories]
+skip_empty = True
+protocol = https
+port = 443

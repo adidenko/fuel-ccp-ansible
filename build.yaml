@@ -1,0 +1,10 @@
+- hosts: kube-master
+  roles:
+    - { role: ccp-cli, tags: ccp-cli }
+    - { role: ccp-conf, tags: ccp-conf }
+    - { role: registry, tags: registry }
+    - { role: ccp-build, tags: ccp-build }
+
+- hosts: k8s-cluster
+  roles:
+    - { role: ccp-images-check, tags: ccp-images-check }

@@ -1,0 +1,6 @@
+ccp_misc_dir: /root/ccp
+ccp_conf: /root/ccp.conf
+ccp_deploy_conf: /root/ccp/deploy-config.yaml
+ccp_builder_push: "True"
+ccp_registry_address: "127.0.0.1:31500"
+ccp_namespace: "ccp"

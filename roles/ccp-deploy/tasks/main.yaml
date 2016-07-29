@@ -1,0 +1,16 @@
+- name: Get namespaces
+  shell: kubectl get namespace
+  register: get_ns
+  run_once: true
+
+- name: Delete namespace
+  shell: kubectl delete namespace {{ ccp_namespace }}
+  when: get_ns.stdout.find('{{ ccp_namespace }}') != -1
+        and ccp_redeploy|default(false)
+
+# TODO: write a wait task
+
+- name: Deploy CCP
+  shell: ccp --config-file={{ ccp_conf }} deploy
+  run_once: true
+  when: get_ns.stdout.find('{{ ccp_namespace }}') == -1
