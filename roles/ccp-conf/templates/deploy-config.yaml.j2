@@ -34,7 +34,7 @@ roles:
     - nova-scheduler
     - rabbitmq
   neutron-agents:
-{% for item in neutron_agents %}
+{% for item in neutron_agents[ccp_neutron_plugin_agent] %}
       - {{ item }}
 {% endfor %}
   compute:
