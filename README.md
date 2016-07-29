@@ -10,7 +10,8 @@ How to
 * Make sure you have inventory.cfg, in the examples below we're using the same
 inventory that was used for Kubernetes deployment with Kargo.
 
-* Default deployment:
+* Default deployment (on 3 Kubernetes worker nodes named: node1, node2, node3.
+See examples for customizationo):
 
 ```bash
 export INVENTORY=/root/kargo/inventory/inventory.cfg
