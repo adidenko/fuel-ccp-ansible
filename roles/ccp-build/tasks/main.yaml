@@ -4,7 +4,7 @@
   when: ccp_fetch|default(true)
 
 - name: Patch projects
-  git: repo="{{ ccp_gerrit_base }}/{{ item.repo }}" dest="{{ ccp_ms_root }}/{{ item.repo }}" refspec={{ item.refspec }}
+  shell: git fetch "{{ ccp_gerrit_base }}/{{ item.repo }}" {{ item.refspec }} && git cherry-pick FETCH_HEAD
   run_once: true
   with_items: "{{ ccp_gerrit_reviews }}"
   when: ccp_gerrit_reviews is defined
