@@ -38,7 +38,8 @@ ccp_roles:
       - compute
       - lma
       - openvswitch
-  neutron_agents:
+
+neutron_agents:
     calico:
       - neutron-metadata-agent
     openvswitch:
