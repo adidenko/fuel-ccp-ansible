@@ -20,6 +20,6 @@
   when: ccp_gerrit_reviews|length > 0
 
 - name: Build CCP images
-  shell: ccp --config-file={{ ccp_conf }} build
+  shell: "ccp --config-file={{ ccp_conf }} build >> /var/log/ccp-build.log 2>&1"
   run_once: true
   when: ccp_build|default(true)
