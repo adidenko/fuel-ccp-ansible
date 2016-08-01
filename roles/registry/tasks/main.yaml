@@ -18,24 +18,24 @@
     mode: 0644
 
 - name: Get pods
-  shell: kubectl get pods
+  shell: kubectl get pods --namespace={{ ccp_registry_ns }}
   register: get_pod
   run_once: true
 
 - name: Get services
-  shell: kubectl get svc
+  shell: kubectl get svc --namespace={{ ccp_registry_ns }}
   register: get_svc
   run_once: true
 
 - name: Create registry pod
-  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_pod.yaml"
+  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_pod.yaml" --namespace={{ ccp_registry_ns }}
   args:
     chdir: /root/ccp
   run_once: true
   when: get_pod.stdout.find('registry') == -1
 
 - name: Create registry svc
-  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_svc.yaml"
+  shell: kubectl create -f "{{ ccp_misc_dir }}/registry_svc.yaml" --namespace={{ ccp_registry_ns }}
   args:
     chdir: /root/ccp
   run_once: true
