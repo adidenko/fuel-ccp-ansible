@@ -19,6 +19,14 @@ ansible-playbook -i $INVENTORY build.yaml
 ansible-playbook -i $INVENTORY deploy.yaml
 ```
 
+* In order to run the same under sudo user (not root) you can do this
+
+```bash
+export INVENTORY=/root/kargo/inventory/inventory.cfg
+ansible-playbook -i $INVENTORY build.yaml -b --become-user root
+ansible-playbook -i $INVENTORY deploy.yaml -b --become-user root
+```
+
 * Deploying networking-calico OpenStack neutron plugin instead of OVS:
 
 ```bash
