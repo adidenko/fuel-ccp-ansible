@@ -16,5 +16,9 @@ ccp_gerrit_reviews:
     refspec: "refs/changes/89/345489/11"
   - repo: "fuel-ccp-nova"
     refspec: "refs/changes/82/346882/4"
+
 # Our reviews add some images, so let's check them as well
 ccp_num_images: 38
+
+# CCP Kubernetes namespace
+ccp_namespace: "ccp"
