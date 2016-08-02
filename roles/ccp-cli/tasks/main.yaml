@@ -3,6 +3,7 @@
     repo: "{{ ccp_repo }}"
     dest: /usr/local/src/fuel-ccp
     version: "{{ ccp_commit }}"
+  become: true
 
 - name: Install CCP cli tool
   shell: pip install -U fuel-ccp/
@@ -10,9 +11,11 @@
     chdir: /usr/local/src
     creates: /usr/local/bin/ccp
   when: not ccp_cli_upgrade|default(false)
+  become: true
 
 - name: Upgrade CCP cli tool
   shell: pip install -U fuel-ccp/
   args:
     chdir: /usr/local/src
   when: ccp_cli_upgrade|default(false)
+  become: true

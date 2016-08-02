@@ -24,6 +24,7 @@
   run_once: true
   when: get_ns.stdout.find('{{ ccp_namespace }}') == -1
         or ccp_redeploy|default(false)
+  become: true
 
 - name: Get resolv.conf
   shell: cat /etc/resolv.conf
@@ -34,3 +35,5 @@
   when: resolv_conf.stdout.find('{{ item }}') == -1 and ccp_hacks|default(true)
   with_items:
     - "{{ ccp_namespace }}.svc.cluster.local"
+    - "kube-system.svc.cluster.local"
+  become: true
