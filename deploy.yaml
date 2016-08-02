@@ -2,3 +2,7 @@
   roles:
     - { role: ccp-conf, tags: ccp-conf }
     - { role: ccp-deploy, tags: ccp-deploy }
+
+- hosts: k8s-cluster
+  roles:
+    - { role: ccp-hacks, tags: ccp-hacks }

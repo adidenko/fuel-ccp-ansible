@@ -1,4 +1,3 @@
 ccp_conf: /root/ccp/ccp.conf
 ccp_namespace: "ccp"
 ccp_redeploy: false
-ccp_hacks: true
