@@ -22,3 +22,7 @@ ccp_num_images: 38
 
 # CCP Kubernetes namespace
 ccp_namespace: "ccp"
+
+# Set ccp_redeploy to true if you want playbooks to automatically remove
+# kubernetes CCP namespace and re-deploy it from the scratch.
+ccp_redeploy: false
