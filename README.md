@@ -11,7 +11,7 @@ How to
 inventory that was used for Kubernetes deployment with Kargo.
 
 * Default deployment (on 3 Kubernetes worker nodes named: node1, node2, node3.
-See examples for customizationo):
+See examples for customization):
 
 ```bash
 export INVENTORY=/root/kargo/inventory/inventory.cfg
