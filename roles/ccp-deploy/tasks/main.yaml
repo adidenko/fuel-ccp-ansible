@@ -34,4 +34,3 @@
   when: resolv_conf.stdout.find('{{ item }}') == -1 and ccp_hacks|default(true)
   with_items:
     - "{{ ccp_namespace }}.svc.cluster.local"
-    - "kube-system.svc.cluster.local"
