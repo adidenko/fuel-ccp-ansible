@@ -11,6 +11,14 @@
   with_items: "{{ ccp_gerrit_reviews }}"
   when: ccp_gerrit_reviews|length > 0
 
+- name: Set some git config to enable patching on problem nodes
+  shell: git config user.email "$USER@$HOSTNAME"
+  args:
+    chdir: "{{ ccp_ms_root }}/{{ item.repo }}"
+  run_once: true
+  with_items: "{{ ccp_gerrit_reviews }}"
+  when: ccp_gerrit_reviews|length > 0
+
 - name: Patch projects
   shell: git fetch "{{ ccp_gerrit_base }}/{{ item.repo }}" {{ item.refspec }} && git cherry-pick FETCH_HEAD
   args:
