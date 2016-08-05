@@ -10,6 +10,9 @@ address = "{{ ccp_registry_address }}"
 [kubernetes]
 namespace = "{{ ccp_namespace }}"
 
+[images]
+namespace = "{{ ccp_images_namespace }}"
+
 [repositories]
 skip_empty = True
 protocol = https

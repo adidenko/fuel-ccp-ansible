@@ -1,2 +1,2 @@
 - name: Check number of built images
-  shell: test $(curl -s {{ ccp_registry_address }}/v2/_catalog | python -mjson.tool | grep mcp/ | wc -l) -ge {{ ccp_num_images }}
+  shell: test $(curl -s {{ ccp_registry_address }}/v2/_catalog | python -mjson.tool | grep {{ ccp_images_namespace }}/ | wc -l) -ge {{ ccp_num_images }}

@@ -4,6 +4,7 @@ ccp_conf: /root/ccp/ccp.conf
 ccp_deploy_conf: /root/ccp/deploy-config.yaml
 ccp_builder_push: "True"
 ccp_registry_address: "127.0.0.1:31500"
+ccp_images_namespace: "ccp"
 ccp_namespace: "ccp"
 ccp_public_interface: "eth1"
 ccp_private_interface: "eth2"
