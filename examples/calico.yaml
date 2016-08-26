@@ -13,9 +13,9 @@ ccp_nodes:
 # List of hashed with gerrit reviews to download and cherry-pick
 ccp_gerrit_reviews:
   - repo: "fuel-ccp-neutron"
-    refspec: "refs/changes/89/345489/11"
+    refspec: "refs/changes/89/345489/19"
   - repo: "fuel-ccp-nova"
-    refspec: "refs/changes/82/346882/4"
+    refspec: "refs/changes/82/346882/5"
 
 # Our reviews add some images, so let's check them as well
 ccp_num_images: 38
