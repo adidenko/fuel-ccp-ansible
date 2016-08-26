@@ -39,8 +39,9 @@ roles:
     - nova-libvirt
 {% if ccp_neutron_plugin_agent == 'calico' %}
   calico:
-    - calico-dhcp-agent
-    - calico-felix
+{% for item in calico_services %}
+    - {{ item }}
+{% endfor %}
 {% else %}
   openvswitch:
     - neutron-openvswitch-agent

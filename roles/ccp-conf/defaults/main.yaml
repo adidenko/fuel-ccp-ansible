@@ -47,3 +47,7 @@ neutron_agents:
       - neutron-metadata-agent
       - neutron-dhcp-agent
       - neutron-l3-agent
+
+calico_services:
+  - calico-dhcp-agent
+  - calico-felix
