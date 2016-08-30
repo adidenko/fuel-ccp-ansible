@@ -10,6 +10,8 @@ ccp_public_interface: "eth1"
 ccp_private_interface: "eth2"
 ccp_neutron_external_interface: "eth3"
 ccp_neutron_logging_debug: "false"
+ccp_calico_etcd_host: "etcd"
+ccp_calico_etcd_port: "2379"
 
 ccp_nodes:
   - name: "node1"
