@@ -1,6 +1,6 @@
 ccp_conf: /root/ccp/ccp.conf
 ccp_fetch: true
 ccp_build: true
-ccp_ms_root: /root/microservices-repos
+ccp_ms_root: /root/ccp-repos
 ccp_gerrit_base: "https://git.openstack.org/openstack"
 ccp_gerrit_reviews: []
