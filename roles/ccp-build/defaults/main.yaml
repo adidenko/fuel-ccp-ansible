@@ -1,4 +1,4 @@
-ccp_conf: /root/ccp/ccp.conf
+ccp_conf: /root/ccp/ccp.yaml
 ccp_fetch: true
 ccp_build: true
 ccp_ms_root: /root/ccp-repos

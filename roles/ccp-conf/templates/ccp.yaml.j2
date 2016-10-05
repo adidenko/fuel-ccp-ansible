@@ -1,3 +1,16 @@
+builder:
+  push: {{ ccp_builder_push }}
+registry:
+  address: "{{ ccp_registry_address }}"
+kubernetes:
+  namespace: "{{ ccp_namespace }}"
+images:
+  namespace: "{{ ccp_images_namespace }}"
+repositories:
+  skip_empty: True
+  protocol: https
+  port: 443
+
 configs:
   public_interface: "{{ ccp_public_interface }}"
   private_interface: "{{ ccp_private_interface }}"
@@ -7,6 +20,7 @@ configs:
   calico_etcd_host: "{{ ccp_calico_etcd_host }}"
   calico_etcd_port: "{{ ccp_calico_etcd_port }}"
 
+{% if ccp_neutron_plugin_agent == 'calico' %}
 nodes:
 {% for node in ccp_nodes %}
   {{ node.name }}:
@@ -56,3 +70,4 @@ roles:
     - kibana
   lma:
     - heka
+{% end %}
