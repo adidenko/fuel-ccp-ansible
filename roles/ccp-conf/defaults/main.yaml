@@ -12,6 +12,7 @@ ccp_neutron_logging_debug: "false"
 ccp_calico_etcd_host: "etcd"
 ccp_calico_etcd_port: "2379"
 ccp_log_file: "/var/log/ccp.log"
+ccp_debug: "True"
 
 ccp_nodes:
   - name: "node1"
