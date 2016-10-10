@@ -28,6 +28,11 @@
   when: ccp_gerrit_reviews|length > 0
 
 - name: Build default CCP images
+  shell: "ccp --config-file={{ ccp_conf }} build"
+  run_once: true
+  when: ccp_build|default(true)
+
+- name: Build additional CCP images
   shell: "ccp --config-file={{ ccp_conf }} build -c {{ item }}"
   run_once: true
   with_items: "{{ ccp_images }}"
