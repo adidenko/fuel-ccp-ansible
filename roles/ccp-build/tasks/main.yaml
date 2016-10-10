@@ -27,7 +27,8 @@
   with_items: "{{ ccp_gerrit_reviews }}"
   when: ccp_gerrit_reviews|length > 0
 
-- name: Build CCP images
-  shell: "ccp --config-file={{ ccp_conf }} build >> /var/log/ccp-build.log 2>&1"
+- name: Build default CCP images
+  shell: "ccp --config-file={{ ccp_conf }} build -c {{ item }}"
   run_once: true
+  with_items: "{{ ccp_images }}"
   when: ccp_build|default(true)

@@ -11,6 +11,7 @@ ccp_neutron_external_interface: "eth3"
 ccp_neutron_logging_debug: "false"
 ccp_calico_etcd_host: "etcd"
 ccp_calico_etcd_port: "2379"
+ccp_log_file: "/var/log/ccp.log"
 
 ccp_nodes:
   - name: "node1"
@@ -22,23 +23,17 @@ ccp_roles:
   controller:
     calico:
       - controller
-      - lma
-      - lma-controller
       - neutron-agents
     openvswitch:
       - controller
-      - lma
-      - lma-controller
       - openvswitch
       - neutron-agents
   compute:
     calico:
       - compute
-      - lma
       - calico
     openvswitch:
       - compute
-      - lma
       - openvswitch
 
 neutron_agents:

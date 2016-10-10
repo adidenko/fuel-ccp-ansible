@@ -11,6 +11,9 @@ repositories:
   protocol: https
   port: 443
 
+debug: True
+log_file: "{{ ccp_log_file }}"
+
 configs:
   public_interface: "{{ ccp_public_interface }}"
   private_interface: "{{ ccp_private_interface }}"
@@ -64,10 +67,4 @@ roles:
     - openvswitch-db
     - openvswitch-vswitchd
 {% endif %}
-  lma-controller:
-    - elasticsearch
-    - influxdb
-    - kibana
-  lma:
-    - heka
 {% endif %}

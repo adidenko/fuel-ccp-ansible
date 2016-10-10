@@ -6,3 +6,5 @@ ccp_gerrit_base: "https://git.openstack.org/openstack"
 ccp_gerrit_reviews: []
 ccp_images:
   - calico-dhcp-agent
+  - neutron-server
+  - neutron-metadata-agent
