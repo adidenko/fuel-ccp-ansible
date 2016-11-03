@@ -16,6 +16,7 @@ configs:
   public_interface: "{{ ccp_public_interface }}"
   private_interface: "{{ ccp_private_interface }}"
   neutron:
+    core_plugin: "{{ ccp_neutron_core_plugin }}"
     external_interface: "{{ ccp_neutron_external_interface }}"
     logging_debug: "{{ ccp_neutron_logging_debug }}"
     plugin_agent: "{{ ccp_neutron_plugin_agent }}"
