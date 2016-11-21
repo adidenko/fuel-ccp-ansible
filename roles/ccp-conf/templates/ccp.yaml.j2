@@ -24,7 +24,7 @@ configs:
     physnets:
       - name: "physnet1"
         bridge_name: "br-ex"
-        interface: ""{{ ccp_neutron_external_interface }}""
+        interface: "{{ ccp_neutron_external_interface }}"
         flat: true
         vlan_range: "{{ ccp_neutron_vlan_range }}"
 {% if ccp_neutron_plugin_agent == 'calico' %}
