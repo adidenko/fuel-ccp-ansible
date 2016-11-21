@@ -16,13 +16,17 @@ configs:
   public_interface: "{{ ccp_public_interface }}"
   private_interface: "{{ ccp_private_interface }}"
   neutron:
-    external_interface: "{{ ccp_neutron_external_interface }}"
-    logging_debug: "{{ ccp_neutron_logging_debug }}"
-    plugin_agent: "{{ ccp_neutron_plugin_agent }}"
     calico:
       etcd_host: "{{ ccp_calico_etcd_host }}"
       etcd_port: "{{ ccp_calico_etcd_port }}"
-
+    plugin_agent: "{{ ccp_neutron_plugin_agent }}"
+    logging_debug: "{{ ccp_neutron_logging_debug }}"
+    physnets:
+      - name: "physnet1"
+        bridge_name: "br-ex"
+        interface: ""{{ ccp_neutron_external_interface }}""
+        flat: true
+        vlan_range: "{{ ccp_neutron_vlan_range }}"
 {% if ccp_neutron_plugin_agent == 'calico' %}
 nodes:
 {% for node in ccp_nodes %}
